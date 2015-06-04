@@ -151,7 +151,7 @@ def filterQuestion(self,buf):
         if showingQuestion:
             if ans[x]:
                 # Only show non-empty answer possiblities
-                replacement_text.append("<input type=\"button\" value=\""+ans[x]+"\" onclick='py.link(\"typeans:"+str(x)+"\");py.link(\"ans\");'>")
+                replacement_text.append("<input type=\"button\" value=\""+ans[x]+"\" onclick='py.link(\"typeans:"+str(x)+"\");py.link(\"ans\");'><br>")
         else:
             if ans[x]:
                 # Only show non-empty answer possiblities
@@ -159,17 +159,17 @@ def filterQuestion(self,buf):
                     # This is the answer that the user clicked upon
                     if ("%s" % self.typedAnswer) == "0":
                         # He clicked on the correct answer, so show the button green
-                        replacement_text.append("<input type=\"button\" style='background-color: green' value='"+ans[x]+"'/> " )
+                        replacement_text.append("<input type=\"button\" style='background-color: green' value='"+ans[x]+"'/><br> " )
                     else:
                         # He clicked on the wrong answer: show in red
-                        replacement_text.append("<input type=\"button\" style='background-color: red' value='"+ans[x]+"'/>" )
+                        replacement_text.append("<input type=\"button\" style='background-color: red' value='"+ans[x]+"'/><br>" )
                 else:
                     # This is an answer the user did not click on
                     if x == 0:
                         # If it is the right answer, show it as green
-                        replacement_text.append("<input type=\"button\" style='background-color: green' value = '"+ans[x]+"'/>" )
+                        replacement_text.append("<input type=\"button\" style='background-color: green' value = '"+ans[x]+"'/><br>" )
                     else:
-                        replacement_text.append("<input type=\"button\" value='"+ans[x]+"'/>" )
+                        replacement_text.append("<input type=\"button\" value='"+ans[x]+"'/><br>" )
     replacement_text = " ".join(replacement_text)
     txt = txt.replace(BUTTON_PLACEHOLDER,replacement_text,1)
 
